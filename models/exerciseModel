@@ -1,0 +1,22 @@
+const mongoose = require('mongoose');
+
+const exerciseSchema = mongoose.Schema({
+  date: {
+    type: String,
+    required: [true, 'Please format as: "xx-xx-xxxx"'],
+  },
+  name: {
+    type: String,
+    required: true,
+  },
+  weight: {
+    type: Number,
+  },
+  reps: {
+    type: Number,
+  },
+});
+
+const Exercise = mongoose.model('Exercise', exerciseSchema);
+
+module.exports = Exercise;
