@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const Exercise = require('./models/exerciseModel');
+const URI = process.env.MONGO_URI;
 const app = express();
 
 app.use(express.json());
@@ -8,10 +9,10 @@ app.use(express.json());
 // Handles requests to root
 app.get('/', (req, res) => {
   res.send(
-    'Cash Rules Everything Around Me, CREAM get the money, dolla dolla bill yall'
+    'Cash Rules Everything Around Me, CREAM, get the money, dolla dolla bill yall'
   );
 });
-
+//
 // Handle post request for saving data into database
 app.post('/exercises', async (req, res) => {
   try {
@@ -76,9 +77,7 @@ app.delete('/exercises/:exName/:exDate', async (req, res) => {
 
 // connect to mongoose database, log successful connection
 mongoose
-  .connect(
-    'mongodb+srv://mckenziemorris1111:mm61419911939@mysoloproject.paqftol.mongodb.net/?retryWrites=true&w=majority'
-  )
+  .connect(URI)
   .then(() => {
     console.log('connected to MongoDB!');
     // app starts a server and listens on port 3000 for connections
