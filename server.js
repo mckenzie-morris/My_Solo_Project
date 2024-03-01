@@ -8,9 +8,7 @@ app.use(express.json());
 
 // Handles requests to root
 app.get('/', (req, res) => {
-  res.send(
-    'Cash Rules Everything Around Me, CREAM, get the money, dolla dolla bill yall'
-  );
+  res.send('This is the root URL');
 });
 //
 // Handle post request for saving data into database
