@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const Exercise = require('./models/exerciseModel');
+require('dotenv').config();
 const URI = process.env.MONGO_URI;
 const app = express();
 
